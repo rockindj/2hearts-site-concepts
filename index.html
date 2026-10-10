@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2 hearts — influencer agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --accent: #64242E; --ink: #1B1715; --dark: #171412; --ivory: #F4F1EC; --rose: #C9A2A8; --muted: #5F5751; --muted-d: #B9B0A8; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Golos Text', system-ui, sans-serif; background: var(--ivory); color: var(--ink); }
+a { color: var(--accent); } a:hover { color: #3F141C; }
+::selection { background: var(--accent); color: var(--ivory); }
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.display { font-family: 'Unbounded', sans-serif; }
+.navlink { color: var(--ink); text-decoration: none; font-size: 15px; }
+.navlink:hover { color: var(--accent); }
+.btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: 16px; font-weight: 500; padding: 15px 26px; border-radius: 999px; border: none; cursor: pointer; font-family: 'Golos Text', sans-serif; transition: transform .15s ease, opacity .15s ease; }
+.btn:hover { transform: translateY(-1px); opacity: .92; }
+.btn-dark { background: var(--ink); color: var(--ivory); }
+.btn-wine { background: var(--accent); color: var(--ivory); font-size: 15px; padding: 12px 22px; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn-light { background: var(--ivory); color: var(--dark); }
+
+header.site { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding-top: 20px; padding-bottom: 20px; }
+header.site nav { display: flex; flex-wrap: wrap; gap: 24px; margin-left: auto; align-items: center; }
+
+.hero { display: flex; flex-wrap: wrap; align-items: center; gap: 44px; padding-top: 48px; padding-bottom: 64px; }
+.hero-text { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 26px; }
+.kicker { margin: 0; font-size: 13px; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); }
+.hero h1 { margin: 0; font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(50px, 8.4vw, 124px); line-height: 1.02; letter-spacing: -.02em; }
+.hero h1 .wine { color: var(--accent); }
+.hero .sub { margin: 0; max-width: 520px; font-size: 19px; line-height: 1.55; color: #3C3531; }
+.hero-art { flex: 1 1 320px; min-width: 260px; max-width: 540px; display: flex; justify-content: center; }
+.hero-art svg { width: 100%; height: auto; display: block; }
+
+.marquee { background: var(--accent); color: var(--ivory); overflow: hidden; padding: 15px 0; }
+.mtrack { display: flex; width: max-content; gap: 44px; align-items: center; font-family: 'Unbounded', sans-serif; font-weight: 300; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; animation: marquee 30s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .mtrack { animation: none; } }
+
+.services { background: var(--dark); color: var(--ivory); padding: 84px 0 92px; }
+.services .cols { display: flex; flex-wrap: wrap; gap: 48px; }
+.services .intro { flex: 1 1 280px; min-width: 250px; display: flex; flex-direction: column; gap: 14px; }
+.services h2 { margin: 0; font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(38px, 5vw, 66px); line-height: 1.05; }
+.services .list { flex: 999 1 520px; min-width: 0; }
+details.acc { border-top: 1px solid rgba(244,241,236,.18); }
+details.acc:last-of-type { border-bottom: 1px solid rgba(244,241,236,.18); }
+summary.acc-h { list-style: none; display: flex; align-items: baseline; gap: 20px; padding: 24px 6px; cursor: pointer; }
+summary.acc-h::-webkit-details-marker { display: none; }
+summary.acc-h:hover { background: rgba(244,241,236,.05); }
+.acc-num { font-family: 'Unbounded', sans-serif; font-weight: 300; font-size: 15px; color: var(--rose); min-width: 34px; }
+.acc-t { flex: 1 1 auto; min-width: 0; }
+.acc-t b { display: block; font-size: clamp(18px, 2.4vw, 23px); font-weight: 500; }
+.acc-t small { display: block; margin-top: 4px; font-size: 14px; color: var(--muted-d); }
+.acc-ico { flex: none; align-self: center; transition: transform .2s ease; }
+details[open] .acc-ico { transform: rotate(45deg); }
+.acc-body { margin: 0; padding: 0 6px 26px 60px; max-width: 620px; font-size: 16px; line-height: 1.6; color: #D8D1C9; }
+
+.statement { background: var(--accent); color: var(--ivory); padding: 92px 0; }
+.statement .cols { display: flex; flex-wrap: wrap; align-items: center; gap: 48px; }
+.statement h2 { margin: 0; font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(30px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -.01em; flex: 999 1 480px; min-width: 0; }
+.statement .st-wrap { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+.statement p { margin: 0; max-width: 560px; font-size: 18px; line-height: 1.6; color: #EADFD9; }
+.statement .art { flex: 1 1 240px; min-width: 210px; max-width: 340px; display: flex; justify-content: center; }
+.statement .art svg { width: 100%; height: auto; display: block; }
+
+.process { padding: 88px 0; }
+.process .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 18px; margin-bottom: 42px; }
+.process h2 { margin: 0; font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.05; }
+.process ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 18px; }
+.process li { flex: 1 1 210px; min-width: 200px; background: #FFFFFF; border: 1px solid #E4DED4; border-radius: 16px; padding: 24px 22px; display: flex; flex-direction: column; gap: 11px; }
+.process li .num { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: 28px; color: var(--accent); }
+.process li .t { font-size: 18px; font-weight: 600; }
+.process li .d { font-size: 15px; line-height: 1.55; color: var(--muted); }
+.process li.final { background: var(--dark); color: var(--ivory); border-color: var(--dark); }
+.process li.final .num { color: var(--rose); }
+.process li.final .d { color: var(--muted-d); }
+
+.who { background: #ECE7DF; padding: 82px 0; }
+.who .inner { display: flex; flex-direction: column; gap: 32px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 12px; }
+.tab { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: 15px; padding: 13px 28px; border-radius: 999px; cursor: pointer; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); }
+.tab[aria-pressed="true"] { background: var(--ink); color: var(--ivory); }
+.panel { display: flex; flex-wrap: wrap; gap: 36px; align-items: flex-start; }
+.panel[hidden] { display: none; }
+.panel .lead { flex: 999 1 400px; min-width: 0; margin: 0; max-width: 620px; font-size: 20px; line-height: 1.55; }
+.panel ul { flex: 1 1 290px; min-width: 250px; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.panel li { display: flex; gap: 12px; align-items: baseline; font-size: 16px; }
+.panel li svg { flex: none; }
+
+.contact { background: var(--dark); color: var(--ivory); padding: 90px 0 72px; }
+.contact .cols { display: flex; flex-wrap: wrap; gap: 48px; }
+.contact .info { flex: 1 1 300px; min-width: 260px; display: flex; flex-direction: column; gap: 22px; }
+.contact h2 { margin: 0; font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(30px, 4vw, 50px); line-height: 1.14; }
+.contact h2 .rose { color: var(--rose); }
+.c-row { border-top: 1px solid rgba(244,241,236,.18); padding-top: 15px; }
+.c-row .lbl { margin: 0; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted-d); }
+.c-row .val { margin: 6px 0 0; font-size: 17px; }
+.contact form { flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 17px; }
+.f-group { display: flex; flex-direction: column; gap: 8px; }
+.f-group label { font-size: 14px; color: var(--muted-d); }
+.field { width: 100%; background: rgba(244,241,236,.04); border: 1px solid rgba(244,241,236,.25); border-radius: 10px; color: var(--ivory); font-family: 'Golos Text', sans-serif; font-size: 15px; padding: 13px 16px; }
+.field:focus { outline: 2px solid var(--rose); outline-offset: 1px; }
+.field::placeholder { color: rgba(244,241,236,.45); }
+.form-note { margin: 0; font-size: 13px; color: var(--muted-d); }
+
+footer.site { background: var(--dark); color: var(--ivory); border-top: 1px solid rgba(244,241,236,.14); padding: 26px 0; }
+footer.site .cols { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+footer.site .meta { margin-left: auto; font-size: 13px; color: var(--muted-d); }
+.mark { display: flex; align-items: center; gap: 9px; text-decoration: none; color: inherit; }
+.mark b { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: 17px; letter-spacing: -.01em; }
+</style>
+</head>
+<body id="top">
+
+<div class="wrap">
+  <header class="site">
+    <a class="mark" href="#top" style="color: var(--ink)">
+      <svg width="20" height="18" viewBox="0 0 100 92" aria-hidden="true"><path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="#64242E"/></svg>
+      <b>2 hearts</b>
+    </a>
+    <nav aria-label="Основное меню">
+      <a class="navlink" href="#services">Услуги</a>
+      <a class="navlink" href="#how">Подход</a>
+      <a class="navlink" href="#who">Брендам и блогерам</a>
+      <a class="navlink" href="#contact">Контакты</a>
+    </nav>
+    <a class="btn btn-wine" href="#contact">Рассказать о задаче
+      <svg width="15" height="12" viewBox="0 0 20 16" aria-hidden="true"><path d="M1 8 H17 M11 2 L17 8 L11 14" stroke="#F4F1EC" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="kicker">Influencer agency</p>
+      <h1>Тот самый<br><span class="wine">мэтч.</span></h1>
+      <p class="sub">Соединяем бренды, инфлюенсеров и артистов в проектах, которые хочется повторить.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 4px">
+        <a class="btn btn-dark" href="#contact">Рассказать о задаче
+          <svg width="16" height="13" viewBox="0 0 20 16" aria-hidden="true"><path d="M1 8 H17 M11 2 L17 8 L11 14" stroke="#F4F1EC" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#who">Стать блогером 2 hearts</a>
+      </div>
+      <p style="margin: 8px 0 0; font-size: 15px; color: var(--muted)">Находим подходящего автора — и берём организацию на себя.</p>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 560 500" role="img" aria-label="Два сердца: хромированное и винное">
+        <defs>
+          <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#FDFDFD"/><stop offset="0.28" stop-color="#D9D9DE"/><stop offset="0.52" stop-color="#96969E"/><stop offset="0.74" stop-color="#ECECEF"/><stop offset="1" stop-color="#AEAEB6"/>
+          </linearGradient>
+          <linearGradient id="wine" x1="0.1" y1="0" x2="0.9" y2="1">
+            <stop offset="0" stop-color="#A24A59"/><stop offset="0.45" stop-color="#6E2634"/><stop offset="1" stop-color="#40121D"/>
+          </linearGradient>
+          <linearGradient id="plinth" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#EDE9E2"/><stop offset="1" stop-color="#DBD5CB"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="280" cy="438" rx="215" ry="26" fill="#1B1715" opacity="0.07"/>
+        <rect x="95" y="398" width="370" height="40" rx="8" fill="url(#plinth)"/>
+        <g transform="translate(96,118) rotate(-11 160 160) scale(3.2)">
+          <path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="url(#chrome)"/>
+          <path d="M22 18 C28 10 38 8 44 12 C38 16 30 22 26 30 C22 26 20 22 22 18 Z" fill="#FFFFFF" opacity="0.75"/>
+        </g>
+        <g transform="translate(222,96) rotate(9 160 160) scale(3.45)">
+          <path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="url(#wine)"/>
+          <path d="M20 20 C25 11 36 8 43 13 C36 16 28 23 24 32 C20 28 18 24 20 20 Z" fill="#FFFFFF" opacity="0.4"/>
+          <path d="M70 14 C76 13 82 17 84 23 C80 21 74 19 70 19 C68 17 68 15 70 14 Z" fill="#FFFFFF" opacity="0.25"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mtrack" id="mtrack"></div>
+</div>
+
+<section class="services" id="services">
+  <div class="wrap cols">
+    <div class="intro">
+      <p class="kicker" style="color: var(--muted-d)">Для брендов, блогеров и артистов</p>
+      <h2>Услуги</h2>
+      <p style="margin: 6px 0 0; font-size: 16px; line-height: 1.6; color: var(--muted-d); max-width: 360px">Каждый проект — штучный. Подбираем формат под задачу, а не задачу под формат.</p>
+    </div>
+    <div class="list">
+      <details class="acc" open>
+        <summary class="acc-h"><span class="acc-num">01</span><span class="acc-t"><b>Коммерческие партнёрства</b><small>Интеграции и совместные проекты</small></span><svg class="acc-ico" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#F4F1EC" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Рекламные интеграции, амбассадорские контракты, спикерские выступления, совместные продукты и спецпроекты.</p>
+      </details>
+      <details class="acc">
+        <summary class="acc-h"><span class="acc-num">02</span><span class="acc-t"><b>Социальные сети</b><small>От стратегии до работы с аудиторией</small></span><svg class="acc-ico" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#F4F1EC" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Ведение и развитие площадок: контент, тон, комьюнити и обратная связь с аудиторией.</p>
+      </details>
+      <details class="acc">
+        <summary class="acc-h"><span class="acc-num">03</span><span class="acc-t"><b>Стратегия</b><small>Задача, аудитория, коммуникация</small></span><svg class="acc-ico" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#F4F1EC" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Формулируем задачу, описываем аудиторию и собираем коммуникационную рамку кампании.</p>
+      </details>
+      <details class="acc">
+        <summary class="acc-h"><span class="acc-num">04</span><span class="acc-t"><b>Продакшн</b><small>Фото, видео и звук</small></span><svg class="acc-ico" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#F4F1EC" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Организуем съёмку и производство: от идеи и референсов до финального материала.</p>
+      </details>
+      <details class="acc">
+        <summary class="acc-h"><span class="acc-num">05</span><span class="acc-t"><b>Аналитика</b><small>Контекст и оценка кампаний</small></span><svg class="acc-ico" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#F4F1EC" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Смотрим на контекст до запуска и оцениваем результат после: охваты, вовлечение, качество аудитории.</p>
+      </details>
+      <details class="acc">
+        <summary class="acc-h"><span class="acc-num">06</span><span class="acc-t"><b>Менеджмент артистов и инфлюенсеров</b><small>Поддержка авторов и артистов</small></span><svg class="acc-ico" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#F4F1EC" stroke-width="2" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Сопровождаем авторов: переговоры, условия, график и организационная рутина.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap cols">
+    <div class="st-wrap">
+      <h2>Между брендом и&nbsp;человеком, который его представляет</h2>
+      <p>Сопоставляем задачу, аудиторию, ценности и формат. После подбора берём на себя полный цикл проекта.</p>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 320 280" role="img" aria-label="Два сердца рядом">
+        <defs>
+          <linearGradient id="chrome2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#FDFDFD"/><stop offset="0.5" stop-color="#A6A6AE"/><stop offset="1" stop-color="#E6E6EA"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="160" cy="252" rx="120" ry="14" fill="#1B0A0E" opacity="0.2"/>
+        <g transform="translate(44,66) rotate(-12 80 80) scale(1.8)">
+          <path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="url(#chrome2)"/>
+        </g>
+        <g transform="translate(122,54) rotate(10 80 80) scale(1.95)">
+          <path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="#F4F1EC"/>
+          <path d="M20 20 C25 11 36 8 43 13 C36 16 28 23 24 32 C20 28 18 24 20 20 Z" fill="#FFFFFF" opacity="0.6"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="how">
+  <div class="wrap">
+    <div class="head">
+      <h2>Как работаем</h2>
+      <p style="margin: 0; font-size: 15px; color: var(--muted)">Пять шагов — один ответственный контакт</p>
+    </div>
+    <ol>
+      <li><span class="num">01</span><span class="t">Погружаемся</span><span class="d">Разбираемся в задаче, аудитории, ценностях и контексте.</span></li>
+      <li><span class="num">02</span><span class="t">Ищем мэтч</span><span class="d">Подбираем автора под задачу и бренд, учитывая обе стороны.</span></li>
+      <li><span class="num">03</span><span class="t">Собираем проект</span><span class="d">Согласуем идею, формат и условия, организуем работу.</span></li>
+      <li><span class="num">04</span><span class="t">Реализуем</span><span class="d">Креатив, продакшн, маркировка и публикация.</span></li>
+      <li class="final"><span class="num">05</span><span class="t">Завершаем</span><span class="d">Отчётность и аккуратное завершение проекта.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="who" id="who">
+  <div class="wrap inner">
+    <div class="tabs" role="group" aria-label="Выбор аудитории">
+      <button class="tab" type="button" id="tab-brands" aria-pressed="true">Брендам</button>
+      <button class="tab" type="button" id="tab-blog" aria-pressed="false">Блогерам</button>
+    </div>
+    <div class="panel" id="panel-brands">
+      <p class="lead">Подбираем автора под задачу и бренд, берём на себя переговоры, продакшн, маркировку и отчётность. Один контакт — весь проект.</p>
+      <ul>
+        <li><svg width="12" height="11" viewBox="0 0 100 92" aria-hidden="true"><path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="#64242E"/></svg>Подбор по ценностям и аудитории, а не по прайсу</li>
+        <li><svg width="12" height="11" viewBox="0 0 100 92" aria-hidden="true"><path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="#64242E"/></svg>Полный цикл: от идеи до публикации и отчёта</li>
+        <li><svg width="12" height="11" viewBox="0 0 100 92" aria-hidden="true"><path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="#64242E"/></svg>Прозрачные условия и понятная коммуникация</li>
+      </ul>
+    </div>
+    <div class="panel" id="panel-blog" hidden>
+      <p class="lead">Находим партнёрства, которые не ломают ваш тон и аудиторию. Представляем интересы автора в переговорах и снимаем организационную рутину.</p>
+      <ul>
+        <li><svg width="12" height="11" viewBox="0 0 100 92" aria-hidden="true"><path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="#64242E"/></svg>Бренды, релевантные вашему контенту</li>
+        <li><svg width="12" height="11" viewBox="0 0 100 92" aria-hidden="true"><path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="#64242E"/></svg>Честные условия и защита интересов автора</li>
+        <li><svg width="12" height="11" viewBox="0 0 100 92" aria-hidden="true"><path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="#64242E"/></svg>Личный менеджер и поддержка по ходу проекта</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap cols">
+    <div class="info">
+      <h2>Расскажите о&nbsp;задаче.<br><span class="rose">Дальше — наша работа.</span></h2>
+      <div class="c-row"><p class="lbl">Telegram</p><p class="val">[появится после настройки]</p></div>
+      <div class="c-row"><p class="lbl">Email</p><p class="val">[появится после настройки]</p></div>
+    </div>
+    <form aria-label="Форма обращения" onsubmit="return false">
+      <div class="f-group"><label for="f-name">Имя</label><input class="field" id="f-name" type="text" placeholder="Как к вам обращаться"></div>
+      <div class="f-group"><label for="f-contact">Контакт</label><input class="field" id="f-contact" type="text" placeholder="Email или Telegram"></div>
+      <div class="f-group"><label for="f-msg">Сообщение</label><textarea class="field" id="f-msg" rows="5" placeholder="Коротко о задаче: бренд или блог, сроки, формат"></textarea></div>
+      <button class="btn btn-light" type="button" style="align-self: flex-start">Подготовить сообщение
+        <svg width="16" height="13" viewBox="0 0 20 16" aria-hidden="true"><path d="M1 8 H17 M11 2 L17 8 L11 14" stroke="#171412" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="form-note">Отправка пока не подключена — форма готовит текст для копирования.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap cols">
+    <span class="mark"><svg width="16" height="14" viewBox="0 0 100 92" aria-hidden="true"><path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="#C9A2A8"/></svg><b>2 hearts</b></span>
+    <span style="font-size: 13px; color: var(--muted-d)">influencer agency</span>
+    <span class="meta">RU · EN — юридические документы появятся позже</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // marquee content
+  var words = ['Бренды', 'Блогеры', 'Артисты', 'Интеграции', 'Продакшн', 'Стратегия'];
+  var heart = '<svg width="13" height="12" viewBox="0 0 100 92"><path d="M50 91 C21 66 6 47 6 30 C6 15 17 5 30 5 C38 5 46 9 50 17 C54 9 62 5 70 5 C83 5 94 15 94 30 C94 47 79 66 50 91 Z" fill="#F4F1EC"/></svg>';
+  var chunk = words.map(function (w) { return '<span>' + w + '</span>' + heart; }).join('');
+  document.getElementById('mtrack').innerHTML = chunk + chunk;
+
+  // tabs
+  var tb = document.getElementById('tab-brands');
+  var tg = document.getElementById('tab-blog');
+  var pb = document.getElementById('panel-brands');
+  var pg = document.getElementById('panel-blog');
+  function pick(brands) {
+    tb.setAttribute('aria-pressed', brands ? 'true' : 'false');
+    tg.setAttribute('aria-pressed', brands ? 'false' : 'true');
+    pb.hidden = !brands;
+    pg.hidden = brands;
+  }
+  tb.addEventListener('click', function () { pick(true); });
+  tg.addEventListener('click', function () { pick(false); });
+})();
+</script>
+</body>
+</html>

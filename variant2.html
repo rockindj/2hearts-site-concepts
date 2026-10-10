@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2 hearts — influencer agency · вариант 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --accent: #64242E; --deep: #40121D; --ink: #201B18; --paper: #F6F3EE; --rose: #D5AEB4; --muted: #6B625A; --line: #DCD3C6; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Golos Text', system-ui, sans-serif; background: var(--paper); color: var(--ink); }
+a { color: var(--accent); } a:hover { color: #3F141C; }
+::selection { background: var(--accent); color: var(--paper); }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.serif { font-family: 'Cormorant Garamond', serif; }
+.navlink { color: var(--ink); text-decoration: none; font-size: 15px; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+.navlink:hover { border-bottom-color: var(--accent); color: var(--accent); }
+.btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 500; font-family: 'Golos Text', sans-serif; border: none; cursor: pointer; border-radius: 6px; transition: opacity .15s ease; }
+.btn:hover { opacity: .88; }
+.btn-wine { background: var(--accent); color: var(--paper); font-size: 16px; padding: 16px 30px; }
+.btn-wine-sm { background: var(--accent); color: var(--paper); font-size: 15px; padding: 12px 24px; }
+.btn-paper { background: var(--paper); color: var(--deep); font-size: 16px; padding: 16px 30px; }
+
+header.site { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; padding-top: 24px; padding-bottom: 24px; border-bottom: 1px solid #E2DACE; }
+header.site nav { display: flex; flex-wrap: wrap; gap: 26px; margin-left: auto; align-items: center; }
+.mark { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.mark b { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; letter-spacing: .01em; }
+
+.hero { display: flex; flex-wrap: wrap; align-items: center; gap: 52px; padding-top: 64px; padding-bottom: 72px; }
+.hero-text { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+.kicker { margin: 0; display: flex; align-items: center; gap: 14px; font-size: 13px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+.kicker::before { content: ""; display: inline-block; width: 36px; height: 1px; background: var(--accent); }
+.hero h1 { margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(52px, 7.6vw, 112px); line-height: 1.04; letter-spacing: -.01em; }
+.hero h1 em { color: var(--accent); }
+.hero .sub { margin: 0; max-width: 500px; font-size: 19px; line-height: 1.6; color: #3E3833; }
+.hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; margin-top: 4px; }
+.link-underline { font-size: 16px; font-weight: 500; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--accent); padding-bottom: 3px; }
+.hero-art { flex: 1 1 300px; min-width: 250px; max-width: 440px; display: flex; justify-content: center; }
+.hero-art svg { width: 100%; height: auto; display: block; }
+
+.strip { border-top: 1px solid #E2DACE; border-bottom: 1px solid #E2DACE; }
+.strip p { margin: 0 auto; max-width: 1200px; padding: 18px 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 26px; font-size: 13px; letter-spacing: .26em; text-transform: uppercase; color: var(--accent); }
+.strip .dot { color: #C9BFB1; }
+
+.services { display: flex; flex-wrap: wrap; gap: 52px; padding-top: 88px; padding-bottom: 96px; }
+.services .intro { flex: 1 1 270px; min-width: 240px; display: flex; flex-direction: column; gap: 14px; }
+.services h2 { margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(42px, 5vw, 70px); line-height: 1.02; }
+.services .list { flex: 999 1 520px; min-width: 0; }
+details.acc { border-top: 1px solid var(--line); }
+details.acc:last-of-type { border-bottom: 1px solid var(--line); }
+summary.acc-h { list-style: none; display: flex; align-items: baseline; gap: 20px; padding: 24px 6px; cursor: pointer; }
+summary.acc-h::-webkit-details-marker { display: none; }
+summary.acc-h:hover { background: rgba(100,36,46,.05); }
+.acc-num { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 22px; color: var(--accent); min-width: 36px; }
+.acc-t { flex: 1 1 auto; min-width: 0; }
+.acc-t b { display: block; font-size: clamp(18px, 2.3vw, 22px); font-weight: 500; }
+.acc-t small { display: block; margin-top: 4px; font-size: 14px; color: var(--muted); }
+.acc-ico { flex: none; align-self: center; transition: transform .2s ease; }
+details[open] .acc-ico { transform: rotate(45deg); }
+.acc-body { margin: 0; padding: 0 6px 26px 62px; max-width: 600px; font-size: 16px; line-height: 1.6; color: #4A443E; }
+
+.statement { background: var(--accent); color: var(--paper); padding: 92px 0; }
+.statement .cols { display: flex; flex-wrap: wrap; align-items: center; gap: 52px; }
+.statement .st { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+.statement h2 { margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(32px, 4.6vw, 62px); line-height: 1.12; }
+.statement p { margin: 0; max-width: 560px; font-size: 18px; line-height: 1.6; color: #EEDFDB; }
+.statement .art { flex: 1 1 200px; min-width: 180px; max-width: 290px; display: flex; justify-content: center; }
+.statement .art svg { width: 100%; height: auto; display: block; }
+
+.process { padding-top: 90px; padding-bottom: 92px; }
+.process .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 18px; margin-bottom: 34px; }
+.process h2 { margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(38px, 4.6vw, 62px); line-height: 1.02; }
+.process ol { list-style: none; margin: 0; padding: 0; }
+.process li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 28px; padding: 24px 4px; border-top: 1px solid var(--line); }
+.process li:last-child { border-bottom: 1px solid var(--line); }
+.p-num { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 34px; color: var(--accent); flex: 0 0 56px; }
+.p-t { font-size: 20px; font-weight: 600; flex: 0 1 220px; }
+.p-d { font-size: 16px; line-height: 1.55; color: #4A443E; flex: 1 1 320px; min-width: 240px; }
+
+.who { background: #EFE9E0; padding: 84px 0; }
+.who .inner { display: flex; flex-direction: column; gap: 32px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 26px; border-bottom: 1px solid #D6CCBD; }
+.tab { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 26px; padding: 6px 2px 14px; cursor: pointer; background: transparent; border: none; border-bottom: 2.5px solid transparent; margin-bottom: -1px; color: var(--muted); }
+.tab[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.panel { display: flex; flex-wrap: wrap; gap: 36px; align-items: flex-start; }
+.panel[hidden] { display: none; }
+.panel .lead { flex: 999 1 400px; min-width: 0; margin: 0; max-width: 600px; font-size: 20px; line-height: 1.6; }
+.panel ul { flex: 1 1 280px; min-width: 250px; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.panel li { display: flex; gap: 12px; align-items: center; font-size: 16px; }
+.panel li::before { content: ""; flex: none; width: 18px; height: 1.5px; background: var(--accent); }
+
+.contact { background: var(--deep); color: var(--paper); padding: 92px 0 76px; }
+.contact .cols { display: flex; flex-wrap: wrap; gap: 52px; }
+.contact .info { flex: 1 1 300px; min-width: 270px; display: flex; flex-direction: column; gap: 22px; }
+.contact h2 { margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(32px, 4.2vw, 56px); line-height: 1.12; }
+.contact h2 em { color: var(--rose); }
+.c-row { border-top: 1px solid rgba(246,243,238,.22); padding-top: 15px; }
+.c-row .lbl { margin: 0; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: #CBB4B0; }
+.c-row .val { margin: 6px 0 0; font-size: 17px; }
+.contact form { flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 17px; }
+.f-group { display: flex; flex-direction: column; gap: 8px; }
+.f-group label { font-size: 14px; color: #CBB4B0; }
+.field { width: 100%; background: rgba(246,243,238,.05); border: 1px solid rgba(246,243,238,.3); border-radius: 8px; color: var(--paper); font-family: 'Golos Text', sans-serif; font-size: 15px; padding: 13px 16px; }
+.field:focus { outline: 2px solid var(--rose); outline-offset: 1px; }
+.field::placeholder { color: rgba(246,243,238,.45); }
+.form-note { margin: 0; font-size: 13px; color: #CBB4B0; }
+
+footer.site { background: var(--deep); color: var(--paper); border-top: 1px solid rgba(246,243,238,.16); padding: 26px 0; }
+footer.site .cols { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+footer.site .meta { margin-left: auto; font-size: 13px; color: #CBB4B0; }
+</style>
+</head>
+<body id="top">
+
+<div class="wrap">
+  <header class="site">
+    <a class="mark" href="#top">
+      <svg width="18" height="16" viewBox="0 0 100 92" aria-hidden="true"><path d="M50 88 C23 64 9 46 9 30 C9 17 19 8 30 8 C38 8 45 12 50 19 C55 12 62 8 70 8 C81 8 91 17 91 30 C91 46 77 64 50 88 Z" fill="none" stroke="#64242E" stroke-width="7"/></svg>
+      <b>2 hearts</b>
+    </a>
+    <nav aria-label="Основное меню">
+      <a class="navlink" href="#services">Услуги</a>
+      <a class="navlink" href="#how">Подход</a>
+      <a class="navlink" href="#who">Брендам и блогерам</a>
+      <a class="navlink" href="#contact">Контакты</a>
+    </nav>
+    <a class="btn btn-wine-sm" href="#contact">Рассказать о задаче</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="kicker">Influencer agency</p>
+      <h1>Тот самый <em>мэтч.</em></h1>
+      <p class="sub">Соединяем бренды, инфлюенсеров и артистов в проектах, которые хочется повторить.</p>
+      <div class="hero-cta">
+        <a class="btn btn-wine" href="#contact">Рассказать о задаче
+          <svg width="16" height="13" viewBox="0 0 20 16" aria-hidden="true"><path d="M1 8 H17 M11 2 L17 8 L11 14" stroke="#F6F3EE" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="link-underline" href="#who">Стать блогером 2 hearts</a>
+      </div>
+      <p style="margin: 8px 0 0; font-size: 15px; color: var(--muted)">Находим подходящего автора — и берём организацию на себя.</p>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 440 400" role="img" aria-label="Два сердца, нарисованные линией">
+        <defs>
+          <linearGradient id="inkline" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#B9B2A9"/><stop offset="1" stop-color="#8E867C"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(58,78) rotate(-9 120 110) scale(2.5)">
+          <path d="M50 88 C23 64 9 46 9 30 C9 17 19 8 30 8 C38 8 45 12 50 19 C55 12 62 8 70 8 C81 8 91 17 91 30 C91 46 77 64 50 88 Z" fill="none" stroke="url(#inkline)" stroke-width="2.4"/>
+        </g>
+        <g transform="translate(152,60) rotate(8 120 110) scale(2.7)">
+          <path d="M50 88 C23 64 9 46 9 30 C9 17 19 8 30 8 C38 8 45 12 50 19 C55 12 62 8 70 8 C81 8 91 17 91 30 C91 46 77 64 50 88 Z" fill="none" stroke="#64242E" stroke-width="2.6"/>
+          <path d="M50 88 C23 64 9 46 9 30 C9 17 19 8 30 8 C38 8 45 12 50 19 C55 12 62 8 70 8 C81 8 91 17 91 30 C91 46 77 64 50 88 Z" fill="#64242E" opacity="0.06"/>
+        </g>
+        <circle cx="222" cy="178" r="4" fill="#64242E"/>
+        <line x1="60" y1="356" x2="380" y2="356" stroke="#D9D1C4" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </section>
+</div>
+
+<div class="strip" aria-hidden="true">
+  <p><span>Бренды</span><span class="dot">·</span><span>Блогеры</span><span class="dot">·</span><span>Артисты</span><span class="dot">·</span><span>Спецпроекты</span></p>
+</div>
+
+<section id="services">
+  <div class="wrap services">
+    <div class="intro">
+      <p class="kicker" style="color: var(--muted)">Для брендов, блогеров и артистов</p>
+      <h2>Услуги</h2>
+      <p style="margin: 6px 0 0; font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 340px">Каждый проект — штучный. Подбираем формат под задачу, а не задачу под формат.</p>
+    </div>
+    <div class="list">
+      <details class="acc" open>
+        <summary class="acc-h"><span class="acc-num">01</span><span class="acc-t"><b>Коммерческие партнёрства</b><small>Интеграции и совместные проекты</small></span><svg class="acc-ico" width="15" height="15" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#64242E" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Рекламные интеграции, амбассадорские контракты, спикерские выступления, совместные продукты и спецпроекты.</p>
+      </details>
+      <details class="acc">
+        <summary class="acc-h"><span class="acc-num">02</span><span class="acc-t"><b>Социальные сети</b><small>От стратегии до работы с аудиторией</small></span><svg class="acc-ico" width="15" height="15" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#64242E" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Ведение и развитие площадок: контент, тон, комьюнити и обратная связь с аудиторией.</p>
+      </details>
+      <details class="acc">
+        <summary class="acc-h"><span class="acc-num">03</span><span class="acc-t"><b>Стратегия</b><small>Задача, аудитория, коммуникация</small></span><svg class="acc-ico" width="15" height="15" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#64242E" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Формулируем задачу, описываем аудиторию и собираем коммуникационную рамку кампании.</p>
+      </details>
+      <details class="acc">
+        <summary class="acc-h"><span class="acc-num">04</span><span class="acc-t"><b>Продакшн</b><small>Фото, видео и звук</small></span><svg class="acc-ico" width="15" height="15" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#64242E" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Организуем съёмку и производство: от идеи и референсов до финального материала.</p>
+      </details>
+      <details class="acc">
+        <summary class="acc-h"><span class="acc-num">05</span><span class="acc-t"><b>Аналитика</b><small>Контекст и оценка кампаний</small></span><svg class="acc-ico" width="15" height="15" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#64242E" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Смотрим на контекст до запуска и оцениваем результат после: охваты, вовлечение, качество аудитории.</p>
+      </details>
+      <details class="acc">
+        <summary class="acc-h"><span class="acc-num">06</span><span class="acc-t"><b>Менеджмент артистов и инфлюенсеров</b><small>Поддержка авторов и артистов</small></span><svg class="acc-ico" width="15" height="15" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 V18 M2 10 H18" stroke="#64242E" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+        <p class="acc-body">Сопровождаем авторов: переговоры, условия, график и организационная рутина.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap cols">
+    <div class="st">
+      <h2>Между брендом и&nbsp;человеком, который его представляет</h2>
+      <p>Сопоставляем задачу, аудиторию, ценности и формат. После подбора берём на себя полный цикл проекта.</p>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 280 240" role="img" aria-label="Два сердца рядом">
+        <g transform="translate(34,52) rotate(-10 70 66) scale(1.55)">
+          <path d="M50 88 C23 64 9 46 9 30 C9 17 19 8 30 8 C38 8 45 12 50 19 C55 12 62 8 70 8 C81 8 91 17 91 30 C91 46 77 64 50 88 Z" fill="none" stroke="#D5AEB4" stroke-width="2.6"/>
+        </g>
+        <g transform="translate(104,40) rotate(9 70 66) scale(1.7)">
+          <path d="M50 88 C23 64 9 46 9 30 C9 17 19 8 30 8 C38 8 45 12 50 19 C55 12 62 8 70 8 C81 8 91 17 91 30 C91 46 77 64 50 88 Z" fill="none" stroke="#F6F3EE" stroke-width="2.8"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap process">
+    <div class="head">
+      <h2>Как работаем</h2>
+      <p style="margin: 0; font-size: 15px; color: var(--muted)">Пять шагов — один ответственный контакт</p>
+    </div>
+    <ol>
+      <li><span class="p-num">01</span><span class="p-t">Погружаемся</span><span class="p-d">Разбираемся в задаче, аудитории, ценностях и контексте.</span></li>
+      <li><span class="p-num">02</span><span class="p-t">Ищем мэтч</span><span class="p-d">Подбираем автора под задачу и бренд, учитывая обе стороны.</span></li>
+      <li><span class="p-num">03</span><span class="p-t">Собираем проект</span><span class="p-d">Согласуем идею, формат и условия, организуем работу.</span></li>
+      <li><span class="p-num">04</span><span class="p-t">Реализуем</span><span class="p-d">Креатив, продакшн, маркировка и публикация.</span></li>
+      <li><span class="p-num">05</span><span class="p-t">Завершаем</span><span class="p-d">Отчётность и аккуратное завершение проекта.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="who" id="who">
+  <div class="wrap inner">
+    <div class="tabs" role="group" aria-label="Выбор аудитории">
+      <button class="tab" type="button" id="tab-brands" aria-pressed="true">Брендам</button>
+      <button class="tab" type="button" id="tab-blog" aria-pressed="false">Блогерам</button>
+    </div>
+    <div class="panel" id="panel-brands">
+      <p class="lead">Подбираем автора под задачу и бренд, берём на себя переговоры, продакшн, маркировку и отчётность. Один контакт — весь проект.</p>
+      <ul>
+        <li>Подбор по ценностям и аудитории, а не по прайсу</li>
+        <li>Полный цикл: от идеи до публикации и отчёта</li>
+        <li>Прозрачные условия и понятная коммуникация</li>
+      </ul>
+    </div>
+    <div class="panel" id="panel-blog" hidden>
+      <p class="lead">Находим партнёрства, которые не ломают ваш тон и аудиторию. Представляем интересы автора в переговорах и снимаем организационную рутину.</p>
+      <ul>
+        <li>Бренды, релевантные вашему контенту</li>
+        <li>Честные условия и защита интересов автора</li>
+        <li>Личный менеджер и поддержка по ходу проекта</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap cols">
+    <div class="info">
+      <h2>Расскажите о&nbsp;задаче.<br><em>Дальше — наша работа.</em></h2>
+      <div class="c-row"><p class="lbl">Telegram</p><p class="val">[появится после настройки]</p></div>
+      <div class="c-row"><p class="lbl">Email</p><p class="val">[появится после настройки]</p></div>
+    </div>
+    <form aria-label="Форма обращения" onsubmit="return false">
+      <div class="f-group"><label for="f-name">Имя</label><input class="field" id="f-name" type="text" placeholder="Как к вам обращаться"></div>
+      <div class="f-group"><label for="f-contact">Контакт</label><input class="field" id="f-contact" type="text" placeholder="Email или Telegram"></div>
+      <div class="f-group"><label for="f-msg">Сообщение</label><textarea class="field" id="f-msg" rows="5" placeholder="Коротко о задаче: бренд или блог, сроки, формат"></textarea></div>
+      <button class="btn btn-paper" type="button" style="align-self: flex-start">Подготовить сообщение
+        <svg width="16" height="13" viewBox="0 0 20 16" aria-hidden="true"><path d="M1 8 H17 M11 2 L17 8 L11 14" stroke="#40121D" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="form-note">Отправка пока не подключена — форма готовит текст для копирования.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap cols">
+    <span class="mark" style="color: var(--paper)">
+      <svg width="15" height="13" viewBox="0 0 100 92" aria-hidden="true"><path d="M50 88 C23 64 9 46 9 30 C9 17 19 8 30 8 C38 8 45 12 50 19 C55 12 62 8 70 8 C81 8 91 17 91 30 C91 46 77 64 50 88 Z" fill="none" stroke="#D5AEB4" stroke-width="7"/></svg>
+      <b style="font-size: 19px">2 hearts</b>
+    </span>
+    <span style="font-size: 13px; color: #CBB4B0">influencer agency</span>
+    <span class="meta">RU · EN — юридические документы появятся позже</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var tb = document.getElementById('tab-brands');
+  var tg = document.getElementById('tab-blog');
+  var pb = document.getElementById('panel-brands');
+  var pg = document.getElementById('panel-blog');
+  function pick(brands) {
+    tb.setAttribute('aria-pressed', brands ? 'true' : 'false');
+    tg.setAttribute('aria-pressed', brands ? 'false' : 'true');
+    pb.hidden = !brands;
+    pg.hidden = brands;
+  }
+  tb.addEventListener('click', function () { pick(true); });
+  tg.addEventListener('click', function () { pick(false); });
+})();
+</script>
+</body>
+</html>
